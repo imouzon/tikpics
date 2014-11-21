@@ -1,0 +1,146 @@
+% For LaTeX-Box: root = tikz_demo.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File Name:
+%  Purpose:
+%
+%  Creation Date: 16-11-2014
+%  Last Modified: Fri Nov 21 12:31:13 2014
+%  Created By:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<<set-parent, echo=FALSE, cache=FALSE, include = TRUE>>=
+   #set up file locations
+   file.directory = '~/github/tikpics/TeXsupport'
+   setwd(file.directory)
+   set_parent('./main-document.rnw')
+@
+
+%-- TikZplot: R code (Code in Document)
+<<TikZplot, echo=FALSE, cache=FALSE, results = 'asis', include = TRUE>>=
+   tikpics2Dscatter = function(options=NULL){
+      #scatter plot options
+      if(is.null(options)){
+         tikpics.options = 'only marks'
+         tikpics.color = 'black'
+         tikpics.mark = 'x'
+      }
+
+      #scatter plot baseline
+      tikpics = '
+         \\begin{tikzpicture}
+            \\begin{axis}[
+               xlabel=tikpics.xlabel,
+               ylabel=tikpics.ylabel
+            ]
+            \\addplot[color=tikpics.color,mark=tikpics.mark, tikpics.options] 
+            coordinates{
+               tikpics.coordinates
+            };
+            \\end{axis}
+         \\end{tikzpicture}'
+
+      #point color
+      tikpics = gsub('tikpics.options',tikpics.options,tikpics)
+
+      #point color
+      tikpics = gsub('tikpics.color',tikpics.color,tikpics)
+
+      #mark type
+      tikpics = gsub('tikpics.mark',tikpics.mark,tikpics)
+
+      return(tikpics)
+   }
+
+   tikpics3Dscatter = function(options=NULL){
+      #scatter plot options
+      if(is.null(options)){
+         tikpics.options = 'only marks'
+         tikpics.color = 'black'
+         tikpics.mark = 'x'
+      }
+
+      #scatter plot baseline
+      tikpics = '
+         \\begin{tikzpicture} 
+            \\begin{axis}[view={theta1}{theta2}] 
+            \\addplot3[only marks ] coordinates{
+               tikpics.coordinates
+            };
+            \\end{axis}
+         \\end{tikzpicture}'
+
+      #point color
+      tikpics = gsub('tikpics.options',tikpics.options,tikpics)
+
+      #point color
+      tikpics = gsub('tikpics.color',tikpics.color,tikpics)
+
+      #mark type
+      tikpics = gsub('tikpics.mark',tikpics.mark,tikpics)
+
+      return(tikpics)
+   }
+
+   tikpics = function(x,y,z=NULL,data=NULL,geom='scatter',xlab=NULL,ylab=NULL,zlab=NULL,tour=FALSE){
+      #scatter plot template without options yet
+      if(geom == 'scatter') tikpics = tikpics2Dscatter()
+      if(geom == 'scatter3d') tikpics = tikpics3Dscatter()
+
+      #get x and y and z axis labels 
+      tikpics.xlabel = c(deparse(substitute(x)),xlab)
+      tikpics.ylabel = c(deparse(substitute(y)),ylab)
+      tikpics.zlabel = c(deparse(substitute(z)),zlab)
+
+      #add x and y and z labels
+      tikpics = gsub('tikpics.xlabel', tikpics.xlabel[length(tikpics.xlabel)],tikpics)
+      tikpics = gsub('tikpics.ylabel', tikpics.ylabel[length(tikpics.ylabel)],tikpics)
+      tikpics = gsub('tikpics.zlabel', tikpics.zlabel[length(tikpics.zlabel)],tikpics)
+
+      #plot content
+      if(geom == 'scatter') tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,')',collapse='\n')"
+      if(geom == 'scatter3d') tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,', ',tikpics.d$tikpics.z,')',collapse='\n')"
+
+      #replace the dataset with the dataset name
+      if(!is.data.frame(data)) tikpics.coordinates = gsub('tikpics.d$','',tikpics.coordinates)
+
+      tikpics.coordinates = gsub('tikpics.d','data',tikpics.coordinates)
+
+      #add the x values to the coordinates
+      tikpics.coordinates = gsub('tikpics.x',tikpics.xlabel[1],tikpics.coordinates)
+
+      #add the y values to the coordinates
+      tikpics.coordinates = gsub('tikpics.y',tikpics.ylabel[1],tikpics.coordinates)
+
+      #add the y values to the coordinates
+      tikpics.coordinates = gsub('tikpics.z',tikpics.zlabel[1],tikpics.coordinates)
+
+      #make the changes
+      eval(parse(text = tikpics.coordinates))
+
+      #add the coordinates to the plot
+      tikpics = gsub('tikpics.coordinates',tikpics.coordinates,tikpics)
+
+      if(tour){
+         strt.theta = 0
+         end.theta = 90
+         by.theta = 10
+         thetas = seq(strt.theta,end.theta,by.theta)
+         tikpics = paste(sapply(1:length(thetas), function(i) gsub('theta2',90-thetas[i],gsub('theta1',thetas[i],tikpics))),collapse='\n\n')
+      }else{
+         tikpics = gsub('theta2',30,gsub('theta1',60,tikpics))
+      }
+
+      cat(tikpics)
+   }
+@
+
+<<TikZplot2, echo=TRUE, message = FALSE, cache=FALSE, include = TRUE>>=
+   require(ggplot2)
+   data(diamonds)
+   d = diamonds[sample(1:nrow(diamonds))[1:40],]
+@
+We can make a tikz plot 
+<<TikZplot3, echo=TRUE, message = FALSE, cache=FALSE, results = 'asis', include = TRUE>>=
+   tikpics(carat,price,data=d)
+   tikpics(x,y,z,data=d,geom='scatter3d')
+   tikpics(x,y,z,data=d,geom='scatter3d',tour=TRUE)
+@
