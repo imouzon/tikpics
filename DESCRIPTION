@@ -1,0 +1,7 @@
+Package: tikpics
+Title: Fill your document with TikZ pics
+Description: tikpics grabs tikz pics and sticks them in your docs
+Version: 0.1
+Author: Ian Mouzon <imouzon@iastate.edu>
+Maintainer: Ian Mouzon <imouzon@iastate.edu>
+License: MIT

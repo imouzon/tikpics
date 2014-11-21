@@ -1,0 +1,259 @@
+optim(2*t/3, Returns0atGoal,lower=rep(0,7), upper = t)
+optim(2*t/3, Returns0atGoal,lower=rep(0,7), upper = t)$par - 2*t/3
+t = round(.4*c(sapply(1:5, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Dog_',i))))), sapply(1:2, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Patient_',i)))))))
+return(sum(abs(LHS - RHS)))
+best$par
+optim(test$par, Returns0atGoal, lower = rep(1,7),upper = t)
+best1$val
+.49128 - .491283
+round(.49128 - .491283,3)
+round(.49128 - .491283,6)
+round(.49128 - .491283,5)
+best1 = optim(.5*t, Returns0atGoal, lower = rep(1,7), upper = t)
+d = round(d)
+LHS = (1-AUC)
+RHS = .5*sapply(1:7,function(i) 1 + f_1[i] - f_0[i])
+best1 = optim(.5*t, Returns0atGoal, lower = rep(1,7), upper = t,method = 'L-BFGS-B')
+d = best$par
+LHS
+RHS
+return(round(sum(abs(LHS - RHS)),6))
+round(best$par)
+t/best$par
+100*best$par/t
+qplot(1:99,best100[1,] -)
+qplot(1:99,best100[])
+LHS = 2*(1 - AUC)*D*(T-D)
+RHS = D*(T-D) - T*d + D*t
+return(round(sum(abs(LHS - RHS))))
+return(round(sum(abs(LHS1 - RHS1))))
+best100 = sapply(1:(N-1),function(i) optim(i*t/N, Returns0atGoal, lower = rep(0,7), upper = t)$value)
+return(round(sum(abs(LHS1 - RHS1)),4))
+best1 = optim(.2*t, Returns0atGoal, lower = rep(1,7), upper = t,method = 'L-BFGS-B')
+/2*t
+.2*t
+best1 = optim(.2*t, Returns0atGoal, lower = rep(1,7), upper = t)
+best100 = sapply(1:(N-1),function(i) optim(i*t/N, Returns0atGoal))
+best100 = sapply(1:(N-1),function(i) optim(i*t/N, Returns0atGoal, lower = rep(0,7), upper = t)$par)
+sum(round(best$par))
+t/.4
+sum(t/.4)
+sum(t)
+best1 = optim(.2*t, Returns0atGoal)
+optim(.1*t, Returns0atGoal)$par
+optim(.2*t, Returns0atGoal)$par
+optim(.3*t, Returns0atGoal)$par
+t
+c(sapply(1:5, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Dog_',i))))), sapply(1:2, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Patient_',i))))))
+.4*c(sapply(1:5, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Dog_',i))))), sapply(1:2, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Patient_',i))))))
+t = .4*c(sapply(1:5, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Dog_',i))))), sapply(1:2, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Patient_',i))))))
+AUC = c(.49128, .55855, .46885, .47984, .49809, .48837, .51501)
+d = .2*t
+d
+D
+T
+unlist(sapply(1:7,function(i) 1 - d[i]/D)) == unlist(sapply(1:7,function(i) 1 - ((t[i] - d[i])/(T - D))))
+unlist(sapply(1:7,function(i) 1 - d[i]/D))
+unlist(sapply(1:7,function(i) 1 - ((t[i] - d[i])/(T - D))))
+(1-AUC)
+sapply(1:7,function(i) 1 + f_1[i] - f_0[i])
+.5*sapply(1:7,function(i) 1 + f_1[i] - f_0[i])
+LHS1 - RHS1
+abs(LHS1 - RHS1)
+sum(abs(LHS1 - RHS1))
+round(sum(abs(LHS1 - RHS1)),6))
+round(sum(abs(LHS1 - RHS1)),6)
+d = .3*t
+optim(.1*t, Returns0atGoal)
+optim(.5*t, Returns0atGoal, lower = rep(1,7),upper = t)
+Returns0atGoal = function(d){
+.1*t
+Returns0atGoal2 = function(d){
+D = sum(d)
+f_1 = unlist(sapply(1:7,function(i) 1 - d[i]/D))
+f_0 = unlist(sapply(1:7,function(i) 1 - ((t[i] - d[i])/(T - D))))
+LHS1 = (1-AUC)
+RHS1 = .5*sapply(1:7,function(i) 1 + f_1[i] - f_0[i])
+LHS2 = 2*(1 - AUC)*D*(T-D)
+RHS2 = D*(T-D) - T*d + D*t
+return(round(sum(abs(LHS1 - RHS1)),6))
+Returns0atGoal[best100
+best1 = optim(.1*t, Returns0atGoal)
+best1
+N = 100
+best100 = sapply(1:(N-1),function(i) optim(i*t/N, Returns0atGoal)$value)
+best100
+qplot(1:99,best100)
+best100 = sapply(1:(N-1),function(i) optim(i*t/N, Returns0atGoal)$par)
+qplot(1:99,best100[1,])
+qplot(1:99,best100[2,])
+qplot(1:99,best100[3,])
+qplot(1:99,best100[4,])
+qplot(1:99,best100[5,])
+qplot(1:99,best100[6,])
+qplot(1:99,best100[7,])
+A = .7
+LHS1 = 2*(1-AUC)*A
+LHS1
+sum(LHS1) == 1
+Returns0atGoal2 = function(x){
+A = .7*T
+LHS1 = 2*(1-AUC)*A/T
+Returns0atGoal2 = function(propA){
+T = sum(t)
+LHS1 = 2*(1-AUC)*propA
+return(sum(LHS1))
+sapply(1:1000, function(i) Return0atGoal2(i/1000))
+sapply(1:1000, function(i) Returns0atGoal2(i/1000))
+sapply(1:1000, function(i) Returns0atGoal2(i/1000)) - 1 > 0
+143/T
+1/(3*sum(1 - AUC))
+*sum(1 - AUC)
+sum(1 - AUC)
+library(devtools)#
+install_github('armstrtw/rzmq')#
+install_github("takluyver/IRdisplay")#
+install_github("takluyver/IRkernel")
+install.packages('bitops')#
+install.packages('RCurl')#
+install.packages('plyr')#
+install.packages('dplyr')#
+install.packages('reshape2')#
+install.packages('tidyr')#
+install.packages('ggplot2')
+require(R.matlab)
+quit(save = "no")
+qplot(c(1:100,1:100),c(1:100,log(1:100))
+)
+ggplot2:::qplot(c(1:100,1:100),c(1:100,log(1:100)))
+ggplot2:::qplot(c(1:100,1:100),c(1:100,log(1:100)),color=c(rep(1,100),rep(2,100)))
+q()
+2^6
+2^6 + 2^5 + 2^2
+?log
+log(100,2)
+log(90,2)
+log(5,2)
+exp(0.5119*gender)
+exp(0.5119*1)
+install.packages('RODBC')
+library(RODBC)
+conn = odbcConnectExcel("~/Downloads/predictions.xlsx")
+?odbcConnectExcel
+read.csv('~/KrisPred.csv')
+read.csv('~/Downloads/submissionpacffft.modified20.csv')
+KPreds = sapply(1:7,function(i) KP[,i])
+KPreds = unlist(sapply(1:7,function(i) KP[,i]))
+dat = read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
+rbind(dat,KPreds[1:nrow(dat),])
+rbind(dat,KPreds[1:nrow(dat)])
+read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
+names(dat)
+data.frame('clip' = clip,'preictal' = KPreds[1:length(clip)])
+tikpics:::grabtikz()
+install.packages('roxygen2')
+grabtikz('fuck')
+grabtikz()
+setwd('~/github/tikpics/')
+library(devtools)
+document()
+install()
+grabtikz('babe')
+grabtikz('jessie babe')
+grabtikz('jessie baby')
+grabtikz('Jessie baby')
+base::source("/tmp/r-plugin-user/Rsource-20562-scattertikz.r", echo=TRUE)
+tikzscatter_base = '\\begin{tikzpicture}[domain=0:3]
+\\begin{axis}[xlabel={$T_{\\text{meas}}$}, ylabel={$T_{\\text{cal}}$}]
+\\addplot[scatter, scatter src=\\thisrow{class},
+error bars/.cd, y dir=both, x dir=both, y explicit, x explicit, error bar style={color=mapped color}]
+table[x=x,y=y,x error=xerr,y error=yerr] {
+x       xerr    y        yerr       class
+0.98521 0.00031 1        0.000001   0
+0.49238 0.00044 0.5      0.00000025 0
+1.09346 0.00032 1.111111 0.0000012  0
+1.23021 0.00078 1.25     0.0000016  0
+1.40567 0.00047 1.428571 0.000002   0
+1.63971 0.00064 1.666667 0.0000028  0
+1.96753 0.00063 2        0.000004   0
+};
+\\end{axis}
+\\end{tikzpicture}'
+cat(tikzscatter_base)
+file.directory = '~/github/tikpics/TeXsupport'
+require(ggplot2)
+data(diamonds)
+xlab = 'Education'
+head(diamonds)
+base::source("/tmp/r-plugin-user/Rsource-23544-tikz_demo.rnw")
+tikpics.d = diamonds
+tikpics.d$carat
+names(tikpics.d)
+paste('(',tikpics.d$carat,',',tikpics.d$price,')')
+paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\\n')
+paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\n')
+"paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\n')"
+tikpics.coordinates = "tikpics.coordinates = paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\n')"
+gsub('tikpics.d',tikpics.d,tikpics.coordinates)
+tikpics.coordinates = "tikpics.coordinates = paste('(',tikpics.d$x,',',tikpics.d$y,')',collapse='\n')"
+tikpics.d = 'diamonds'
+tikpics.x = 'carat'
+tikpics.y = 'price'
+tikpics.coordinates = "tikpics.coordinates = paste('(',tikpics.d$tikpics.x,',',tikpics.d$tikpics.y,')',collapse='\n')"
+tikpics.coordinates = gsub('tikpics.d',tikpics.d,tikpics.coordinates)
+tikpics.coordinates = gsub('tikpics.x',tikpics.x,tikpics.coordinates)
+tikpics.coordinates = gsub('tikpics.y',tikpics.y,tikpics.coordinates)
+eval(parse(text = tikpics.coordinates))
+tikpics.coordinates
+tikpics = gsub('tikpics.coordinates',tikpics.mark,tikpics)
+tikpics = gsub('tikpics.coordinates',tikpics.coordinates,tikpics)
+base::source("/tmp/r-plugin-user/Rsource-28213-tikz_demo.rnw")
+KPreds = c(KP[,1], KP[,2], KP[,3], KP[,4], KP[,5], KP[,6], KP[,7])
+KP[,1]
+KP[,2]
+KP[is.na(KP[,2]),2]
+d$preictal = d$preictal > 0
+KPreds = c(KP[!is.na(KP[,1]),1], KP[!is.na(KP[,2]),2], KP[!is.na(KP[,3]),3], KP[!is.na(KP[,4]),4], KP[!is.na(KP[,5]),5], KP[!is.na(KP[,6]),6], KP[!is.na(KP[,7]),7])
+head(d)
+write.csv('KPreds.submit.csv',row.names=FALSE)|l
+write.csv('KPreds.submit.csv',row.names=FALSE)
+KP[!is.na(KP[,2]),2]
+KP[!is.na(KP[,3]),3]
+KP[!is.na(KP[,4]),3]
+KP[!is.na(KP[,4]),4]
+KP[!is.na(KP[,4]),5]
+KP[!is.na(KP[,5]),5]
+KP[!is.na(KP[,5]),6]
+KP[!is.na(KP[,6]),6]
+length(KPreds)
+d = data.frame('clip' = clip,'preictal' = KPreds[1:length(clip)])
+KPreds
+tail(KPreds,50)
+tail(d)
+length(clip)
+KP = read.csv('~/KrisPred.csv')
+KP[!is.na(KP[,7]),7]
+KPreds = c(
+KP[!is.na(KP[,1]),1],
+KP[!is.na(KP[,2]),2],
+KP[!is.na(KP[,3]),3],
+KP[!is.na(KP[,4]),4],
+KP[!is.na(KP[,5]),5],
+KP[!is.na(KP[,6]),6],
+KP[!is.na(KP[,7]),7])
+clip = read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
+d = data.frame('clip' = clip,'preictal' = KPreds)
+d$preictal = 1*(d$preictal > 0)
+write.csv(d,'KPreds.submit.csv',row.names=FALSE)
+write.csv(d,'~/KPreds.submit.csv',row.names=FALSE)
+xlab = NULL
+xlab = 'fish'
+is.null(xlab)
+tikpics.labels = function(x,y,z,xlab,ylab,zlab){
+if(is.null(xlab)){
+tikpics.xlabel = deparse(substitute(x))
+if(is.null(ylab)){
+tikpics.ylabel = deparse(substitute(y))
+if(is.null(zlab)){
+tikpics.zlabel = deparse(substitute(z))
+}
