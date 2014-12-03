@@ -17,7 +17,7 @@ tikpics3Dscatter = function(options=NULL){
    tikpics = '
       \\begin{tikzpicture} 
          \\begin{axis}[view={theta1}{theta2}] 
-         \\addplot3[only marks ] coordinates{
+         \\addplot3[only marks] coordinates{
             tikpics.coordinates
          };
          \\end{axis}

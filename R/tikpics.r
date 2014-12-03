@@ -8,6 +8,8 @@ tikpics = function(x,y,z=NULL,data=NULL,geom='scatter',xlab=NULL,ylab=NULL,zlab=
    #scatter plot template without options yet
    if(geom == 'scatter') tikpics = tikpics2Dscatter()
    if(geom == 'scatter3d') tikpics = tikpics3Dscatter()
+   if(!is.null(z)) tikpics = tikpics3Dscatter()
+
 
    #get x and y and z axis labels 
    tikpics.xlabel = c(deparse(substitute(x)),xlab)
@@ -19,12 +21,13 @@ tikpics = function(x,y,z=NULL,data=NULL,geom='scatter',xlab=NULL,ylab=NULL,zlab=
    tikpics = gsub('tikpics.ylabel', tikpics.ylabel[length(tikpics.ylabel)],tikpics)
    tikpics = gsub('tikpics.zlabel', tikpics.zlabel[length(tikpics.zlabel)],tikpics)
 
-   #plot content
-   if(geom == 'scatter') tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,')',collapse='\n')"
+   ##plot content
+   if(geom == 'scatter')   tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,')',collapse='\n')"
    if(geom == 'scatter3d') tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,', ',tikpics.d$tikpics.z,')',collapse='\n')"
+   if(!is.null(z)) tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,', ',tikpics.d$tikpics.z,')',collapse='\n')"
 
-   #replace the dataset with the dataset name
-   if(!is.data.frame(data)) tikpics.coordinates = gsub('tikpics.d$','',tikpics.coordinates)
+   ##replace the dataset with the dataset name
+   if(is.null(data)) tikpics.coordinates = gsub('tikpics.d\\$','',tikpics.coordinates)
 
    tikpics.coordinates = gsub('tikpics.d','data',tikpics.coordinates)
 

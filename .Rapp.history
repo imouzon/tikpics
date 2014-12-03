@@ -1,34 +1,3 @@
-optim(2*t/3, Returns0atGoal,lower=rep(0,7), upper = t)
-optim(2*t/3, Returns0atGoal,lower=rep(0,7), upper = t)$par - 2*t/3
-t = round(.4*c(sapply(1:5, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Dog_',i))))), sapply(1:2, function(i) sum(grepl('test',list.files(paste0('/Volumes/las$/STAT/KaggleDataComp/data/raw_data/Patient_',i)))))))
-return(sum(abs(LHS - RHS)))
-best$par
-optim(test$par, Returns0atGoal, lower = rep(1,7),upper = t)
-best1$val
-.49128 - .491283
-round(.49128 - .491283,3)
-round(.49128 - .491283,6)
-round(.49128 - .491283,5)
-best1 = optim(.5*t, Returns0atGoal, lower = rep(1,7), upper = t)
-d = round(d)
-LHS = (1-AUC)
-RHS = .5*sapply(1:7,function(i) 1 + f_1[i] - f_0[i])
-best1 = optim(.5*t, Returns0atGoal, lower = rep(1,7), upper = t,method = 'L-BFGS-B')
-d = best$par
-LHS
-RHS
-return(round(sum(abs(LHS - RHS)),6))
-round(best$par)
-t/best$par
-100*best$par/t
-qplot(1:99,best100[1,] -)
-qplot(1:99,best100[])
-LHS = 2*(1 - AUC)*D*(T-D)
-RHS = D*(T-D) - T*d + D*t
-return(round(sum(abs(LHS - RHS))))
-return(round(sum(abs(LHS1 - RHS1))))
-best100 = sapply(1:(N-1),function(i) optim(i*t/N, Returns0atGoal, lower = rep(0,7), upper = t)$value)
-return(round(sum(abs(LHS1 - RHS1)),4))
 best1 = optim(.2*t, Returns0atGoal, lower = rep(1,7), upper = t,method = 'L-BFGS-B')
 /2*t
 .2*t
@@ -122,12 +91,10 @@ install.packages('reshape2')#
 install.packages('tidyr')#
 install.packages('ggplot2')
 require(R.matlab)
-quit(save = "no")
 qplot(c(1:100,1:100),c(1:100,log(1:100))
 )
 ggplot2:::qplot(c(1:100,1:100),c(1:100,log(1:100)))
 ggplot2:::qplot(c(1:100,1:100),c(1:100,log(1:100)),color=c(rep(1,100),rep(2,100)))
-q()
 2^6
 2^6 + 2^5 + 2^2
 ?log
@@ -142,118 +109,151 @@ conn = odbcConnectExcel("~/Downloads/predictions.xlsx")
 ?odbcConnectExcel
 read.csv('~/KrisPred.csv')
 read.csv('~/Downloads/submissionpacffft.modified20.csv')
+KP = read.csv('~/KrisPred.csv')
 KPreds = sapply(1:7,function(i) KP[,i])
 KPreds = unlist(sapply(1:7,function(i) KP[,i]))
+KP[,1]
+KPreds = c(KP[,1], KP[,2], KP[,3], KP[,4], KP[,5], KP[,6], KP[,7])
+KPreds
 dat = read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
 rbind(dat,KPreds[1:nrow(dat),])
 rbind(dat,KPreds[1:nrow(dat)])
 read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
 names(dat)
+clip = read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
 data.frame('clip' = clip,'preictal' = KPreds[1:length(clip)])
-tikpics:::grabtikz()
-install.packages('roxygen2')
-grabtikz('fuck')
-grabtikz()
+d = data.frame('clip' = clip,'preictal' = KPreds[1:length(clip)])
+write.csv('KPreds.submit.csv',row.names=FALSE)
+write.csv(d,'KPreds.submit.csv',row.names=FALSE)
+58/507
+51/507
+50/507
+quit(save = "no")
+library(rvest)
+html("http://www.stat.iastate.edu/people/faculty/") %>%
+html_nodes(".link") %>%
+html_table()
+install_github('cpsievert/XML2R')
+library(XML2R)
+obs <- XML2Obs("http://bit.ly/mario-xml")
+table(names(obs))
+obs  <- add_key(obs,parent = 'mariokart//driver', recycle = 'name')
+obs
+collapse_obs(obs)
+q()
+325000000
+20000/325000000
+zoo = function(dog,cat,cow='horse'){
+return(paste(dog,cat,cow))
+zoo('kip','pip')
+zoo('kip','pip','pop')
+tikpics.labels = function(x,y,z,xlab,ylab,zlab){
+tikpics.labels = function(x = NULL,y = NULL,z = NULL,xlab = NULL,ylab = NULL,zlab = NULL){
+tikpics2Dscatter.template = function()
+if(geom = 'scatter'){
+tikpics2Dscatter.template = function(){
+grab.tikpics.labels = function(x = NULL,y = NULL,z = NULL,xlab = NULL,ylab = NULL,zlab = NULL){
+if(is.null(xlab)){
+tikpics.xlabel = deparse(substitute(x))
+tikpics.xlabel = xlab
+if(is.null(ylab)){
+tikpics.ylabel = deparse(substitute(y))
+tikpics.ylabel = ylab
+if(is.null(zlab)){
+tikpics.zlabel = deparse(substitute(z))
+tikpics.zlabel = zlab
+return(c(tikpics.xlabel,tikpics.ylabel,tikpics.zlabel))
+x = 1:100
+grab.tikpics.labels(x)
+grab.tikpics.labels(x,'100 random values')
+grab.tikpics.labels(x,xlab)
+tikpics2Dscatter.template = function(x,y,data){
+tikpics2Dscatter.template = function(x,y,data=NULL){
+tikpics.coordinates = "tikpics.coordinates = paste0('(',tikpics.d$tikpics.x,', ',tikpics.d$tikpics.y,')',collapse='\n')"
+if(data == NULL){
+tikpics.coordinates = gsub('tikpics.d$',,tikpics.coordinates)
+tikpics.coordinates = gsub('tikpics.d',data,tikpics.coordinates)
+tikpics.coordinates = gsub('tikpics.x',x,tikpics.coordinates)
+tikpics.coordinates = gsub('tikpics.y',y,tikpics.coordinates)
+eval(parse(text = tikpics.coordinates))
+tikpics = gsub('tikpics.coordinates',tikpics.coordinates,tikpics)
+tikpics2Dscatter(d$carat,d$price)
+is.data.frame(d)
+is.data.frame(d)[1]
+tikpics2Dscatter = function(x,y,data=NULL){
+tikpics2Dscatter = function(){
+tikpics.options = 'only marks, y=.5cm'
+\\addplot[color=tikpics.color,mark=tikpics.mark, only marks]
+tikpics2Dscatter = function(options=NULL){
+if(is.null(options)){
+tikpics.options = 'only marks'
+tikpics.color = 'black'
+tikpics.mark = 'x'
+tikpics = '
+\\begin{tikzpicture}
+\\begin{axis}[
+xlabel=tikpics.xlabel,
+ylabel=tikpics.ylabel
+]
+\\addplot[color=tikpics.color,mark=tikpics.mark, tikpics.options]
+coordinates{
+tikpics = gsub('tikpics.options',tikpics.options,tikpics)
+tikpics = gsub('tikpics.color',tikpics.color,tikpics)
+tikpics = gsub('tikpics.mark',tikpics.mark,tikpics)
+return(tikpics)
+grab.tikpics.labels = function(var = NULL,var.label = NULL){
+if(is.null(var.label)){
+tikpics.varlabel = deparse(substitute(var))
+}else{
+tikpics.varlabel = var.label
+return(tikpics.varlabel)
+}
+tikpics = tikpics2Dscatter()
+d = diamonds[1:100,]
+tikpics2Dscatter(carat,price,data=d)
+tikpics2Dscatter()
+tikpics = gsub('tikpics.xlabel', grab.tikpics.labels(x,xlab),tikpics)
+tikpics('carat',price,data=d)
+base::source("/tmp/r-plugin-user/Rsource-12773-tikz_demo.rnw")
+tikpics('carat','price',data=d)
+names(d)
+require(ggplot2)
+data(diamonds)
+d = diamonds[sample(1:nrow(diamonds))[1:40],]
+head(d)
+paste('(0,0,',d$x,') (0, 0, ', d$y, ') (0, 0, ',d$z,')')
+paste0('(0,0,',d$x,') (0, 0, ', d$y, ') (0, 0, ',d$z,')',)
+paste('(0,0,',d$x,') (0, 0, ', d$y, ') (0, 0, ',d$z,')',)
+paste('(0,0,',d$x,') (0, 0, ', d$y, ') (0, 0, ',d$z,')',collapse = '\n')
+base::source("/tmp/r-plugin-user/Rsource-17490-tikz_demo.rnw")
+\\addplot3[surf] coordinates{
+tikpics.coords =
+paste0('(0,0,',d$x,') (0, 0, ', d$y, ') (0, 0, ',d$z,')',collapse = '\n')
+cat(tikpics3d)
+tikpics.coords = paste0('(',d$x,', ', d$y, ', ',d$z,')',collapse = '\n')
+tikpics.coords
+tikpics3d = gsub('tikpics.coordinates',tikpics.coords,tikpics3d)
+tikpics.coords = paste0('(',d$x,', ', d$y, ', ',d$z,') (',d$x,', ', d$y, ', 0)',collapse = '\n')
+tikpics3d = '\\begin{tikzpicture}
+\\begin{axis}
+\\addplot3[only marks] coordinates{
+tikpics.coordinates
+};
+\\end{axis}
+\\end{tikzpicture}'
+gsub('tikpics.coordinates',tikpics.coords,tikpics3d)
+seq(10,90,10)
+base::source("/tmp/r-plugin-user/Rsource-35159-tikz_demo.rnw")
+tikpics(carat,price,data=d)
+tikpics(x,y,z,data=d,geom='scatter3d')
+tikpics(x,y,z,data=d,geom='scatter3d',tour=TRUE)
 setwd('~/github/tikpics/')
 library(devtools)
 document()
 install()
-grabtikz('babe')
-grabtikz('jessie babe')
-grabtikz('jessie baby')
 grabtikz('Jessie baby')
-base::source("/tmp/r-plugin-user/Rsource-20562-scattertikz.r", echo=TRUE)
-tikzscatter_base = '\\begin{tikzpicture}[domain=0:3]
-\\begin{axis}[xlabel={$T_{\\text{meas}}$}, ylabel={$T_{\\text{cal}}$}]
-\\addplot[scatter, scatter src=\\thisrow{class},
-error bars/.cd, y dir=both, x dir=both, y explicit, x explicit, error bar style={color=mapped color}]
-table[x=x,y=y,x error=xerr,y error=yerr] {
-x       xerr    y        yerr       class
-0.98521 0.00031 1        0.000001   0
-0.49238 0.00044 0.5      0.00000025 0
-1.09346 0.00032 1.111111 0.0000012  0
-1.23021 0.00078 1.25     0.0000016  0
-1.40567 0.00047 1.428571 0.000002   0
-1.63971 0.00064 1.666667 0.0000028  0
-1.96753 0.00063 2        0.000004   0
-};
-\\end{axis}
-\\end{tikzpicture}'
-cat(tikzscatter_base)
-file.directory = '~/github/tikpics/TeXsupport'
-require(ggplot2)
-data(diamonds)
-xlab = 'Education'
-head(diamonds)
-base::source("/tmp/r-plugin-user/Rsource-23544-tikz_demo.rnw")
-tikpics.d = diamonds
-tikpics.d$carat
-names(tikpics.d)
-paste('(',tikpics.d$carat,',',tikpics.d$price,')')
-paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\\n')
-paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\n')
-"paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\n')"
-tikpics.coordinates = "tikpics.coordinates = paste('(',tikpics.d$carat,',',tikpics.d$price,')',collapse='\n')"
-gsub('tikpics.d',tikpics.d,tikpics.coordinates)
-tikpics.coordinates = "tikpics.coordinates = paste('(',tikpics.d$x,',',tikpics.d$y,')',collapse='\n')"
-tikpics.d = 'diamonds'
-tikpics.x = 'carat'
-tikpics.y = 'price'
-tikpics.coordinates = "tikpics.coordinates = paste('(',tikpics.d$tikpics.x,',',tikpics.d$tikpics.y,')',collapse='\n')"
-tikpics.coordinates = gsub('tikpics.d',tikpics.d,tikpics.coordinates)
-tikpics.coordinates = gsub('tikpics.x',tikpics.x,tikpics.coordinates)
-tikpics.coordinates = gsub('tikpics.y',tikpics.y,tikpics.coordinates)
-eval(parse(text = tikpics.coordinates))
-tikpics.coordinates
-tikpics = gsub('tikpics.coordinates',tikpics.mark,tikpics)
-tikpics = gsub('tikpics.coordinates',tikpics.coordinates,tikpics)
-base::source("/tmp/r-plugin-user/Rsource-28213-tikz_demo.rnw")
-KPreds = c(KP[,1], KP[,2], KP[,3], KP[,4], KP[,5], KP[,6], KP[,7])
-KP[,1]
-KP[,2]
-KP[is.na(KP[,2]),2]
-d$preictal = d$preictal > 0
-KPreds = c(KP[!is.na(KP[,1]),1], KP[!is.na(KP[,2]),2], KP[!is.na(KP[,3]),3], KP[!is.na(KP[,4]),4], KP[!is.na(KP[,5]),5], KP[!is.na(KP[,6]),6], KP[!is.na(KP[,7]),7])
-head(d)
-write.csv('KPreds.submit.csv',row.names=FALSE)|l
-write.csv('KPreds.submit.csv',row.names=FALSE)
-KP[!is.na(KP[,2]),2]
-KP[!is.na(KP[,3]),3]
-KP[!is.na(KP[,4]),3]
-KP[!is.na(KP[,4]),4]
-KP[!is.na(KP[,4]),5]
-KP[!is.na(KP[,5]),5]
-KP[!is.na(KP[,5]),6]
-KP[!is.na(KP[,6]),6]
-length(KPreds)
-d = data.frame('clip' = clip,'preictal' = KPreds[1:length(clip)])
-KPreds
-tail(KPreds,50)
-tail(d)
-length(clip)
-KP = read.csv('~/KrisPred.csv')
-KP[!is.na(KP[,7]),7]
-KPreds = c(
-KP[!is.na(KP[,1]),1],
-KP[!is.na(KP[,2]),2],
-KP[!is.na(KP[,3]),3],
-KP[!is.na(KP[,4]),4],
-KP[!is.na(KP[,5]),5],
-KP[!is.na(KP[,6]),6],
-KP[!is.na(KP[,7]),7])
-clip = read.csv('~/Downloads/submissionpacffft.modified20.csv')[,1]
-d = data.frame('clip' = clip,'preictal' = KPreds)
-d$preictal = 1*(d$preictal > 0)
-write.csv(d,'KPreds.submit.csv',row.names=FALSE)
-write.csv(d,'~/KPreds.submit.csv',row.names=FALSE)
-xlab = NULL
-xlab = 'fish'
-is.null(xlab)
-tikpics.labels = function(x,y,z,xlab,ylab,zlab){
-if(is.null(xlab)){
-tikpics.xlabel = deparse(substitute(x))
-if(is.null(ylab)){
-tikpics.ylabel = deparse(substitute(y))
-if(is.null(zlab)){
-tikpics.zlabel = deparse(substitute(z))
-}
+install_github('imouzon','tikpics')
+install_github('tikpics/imouzon')
+install_github('imouzon/tikpics')
+require(tikzpics)
+require(tikpics)
